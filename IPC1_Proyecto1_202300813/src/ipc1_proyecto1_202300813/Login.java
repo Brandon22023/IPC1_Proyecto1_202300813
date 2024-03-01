@@ -34,7 +34,15 @@ public class Login extends JFrame{
         usernameFiel.setBounds(130,140 , 260, 25);
         this.add(usernameFiel);
         
+        ImageIcon imagen2 = new  ImageIcon (getClass().getResource("../img/fondo3.jpg"));
+        Image imageDemension2 = imagen2.getImage().getScaledInstance(500, 300, Image.SCALE_SMOOTH); //ANCHO, ALTURA
+        ImageIcon adjustedImageIcon2 = new ImageIcon(imageDemension2);
+        //Jlabel para mostrar la imagen 
+        JLabel imagenLabel2 =new JLabel (adjustedImageIcon2);
+         imagenLabel2.setBounds(0,0,500, 300);
+         this.add(imagenLabel2);
         
+
         
         //ventana de inicio
         this.setTitle("Login");
@@ -43,7 +51,7 @@ public class Login extends JFrame{
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        
+
         
     }
     
