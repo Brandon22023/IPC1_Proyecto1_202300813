@@ -3,7 +3,7 @@ package ipc1_proyecto1_202300813;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
-import java.awt.event.ActionListener;
+
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame implements ActionListener{
@@ -72,17 +72,43 @@ public class Login extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent IniciarS) {
+        boolean ingresar = false;
         //cuando revisa un click
         if (IniciarS.getActionCommand().equals("Iniciar sesión")) {
             //accion a realizar al presionar encima
            String Username = usernameFiel.getText();
            String contra = new String (passwordFiel.getPassword());
-            System.out.println("usuario " + Username);
-            System.out.println("contra " +contra );
+            if (Username.equals("202300813") && contra.equals("proyecto1IPC1") ) {
+                Administrador Admin = new Administrador();
+                this.dispose();
+                
+                
+                
+            }
+            
+            else if(ingresar == false){
+                
+                Registro regi = new Registro();
+               regi.setVisible(false);
+             boolean ingrse = false;
+             for (int i = 0; i < regi.listauwu.size() ; i++) {
+             if (Username.equals(Integer.toString(regi.listauwu.get(i).getCodigo())) && contra.equals(regi.listauwu.get(i).getContraseña())){
+                JOptionPane.showMessageDialog(null,"Bienvenido Usuario");
+                 Administrador Admin = new Administrador();
+                 this.dispose();
+            }else{
+                 JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta", "no se pudo inicar sesión", JOptionPane.WARNING_MESSAGE);
+             }
+            
+        }
+              
+            }
             //click en el boton registro
         }else  if (IniciarS.getActionCommand().equals("Registrarse")) {
             //accion a realizar al presionar encima
-            System.out.println("uwu");
+            Registro registro1 = new Registro();
+            this.dispose();
+            
         }
         
     }
