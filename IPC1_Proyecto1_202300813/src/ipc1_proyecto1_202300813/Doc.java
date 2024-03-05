@@ -8,6 +8,9 @@ public class Doc {
     private int edad;
     private String especialidad;
     private String telefono;
+    private String apellido;  // Nuevo campo
+   private String contraseña;
+    
 
     public Doc(int codigo, String nombre, String genero, int edad, String especialidad, String telefono) {
         this.codigo = codigo;
@@ -16,6 +19,14 @@ public class Doc {
         this.edad = edad;
         this.especialidad = especialidad;
         this.telefono = telefono;
+    }
+
+    Doc(int codigo, String nombre, String genero, String edad, String especialidad, String telefono) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    Doc(int codigo, String nombre, String genero, int edad, String especialidad, String telefono, String apellido, String contraseña) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getCodigo() {
@@ -64,6 +75,34 @@ public class Doc {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    /**
+     * @return the contraseña
+     */
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    /**
+     * @param contraseña the contraseña to set
+     */
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
 

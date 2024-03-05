@@ -118,6 +118,23 @@ public class crear_Doc extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton){
+            
+            String nombre = firstNameField.getText();
+            String apellido = lastNameField.getText();
+            String contraseña = Password.getText();
+            String especialidad = Especialidad.getText();
+            String Edad = edad.getText();
+            String tel = Telefono.getText();
+            String Selectgener =(String)genderComboBox.getSelectedItem();
+            IPC1_Proyecto1_202300813.agregardoctor(IPC1_Proyecto1_202300813.contador, nombre,Selectgener , Integer.parseInt(Edad), especialidad, tel);
+            
+            IPC1_Proyecto1_202300813.contador++;
+            
+            
+            
+            
+            
+            
             this.dispose();
             Administrador Admin = new Administrador();
             

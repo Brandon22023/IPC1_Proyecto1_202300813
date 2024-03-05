@@ -12,6 +12,7 @@ public class IPC1_Proyecto1_202300813 {
         //Login Login1 =new Login();
         Administrador Admin = new Administrador();
          //Registro registro1 = new Registro();
+       
         
     }
     
@@ -35,4 +36,12 @@ public class IPC1_Proyecto1_202300813 {
         return arreglo;
     }
     
+    public static void agregardoctor(int codigo, String nombre, String genero, int edad, String especialidad, String telefono){
+        
+        listadoctores.add(new Doc(codigo, nombre, genero, edad, especialidad, telefono));
+    }
+    public static int contador=001;
+    
+    
 }
+
