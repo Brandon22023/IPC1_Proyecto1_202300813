@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 
 public class crear_Doc extends JFrame implements ActionListener{
-     private JTextField firstNameField;
+    private JTextField firstNameField;
     private JTextField lastNameField;
     private JTextField Password;
     private JTextField Especialidad;

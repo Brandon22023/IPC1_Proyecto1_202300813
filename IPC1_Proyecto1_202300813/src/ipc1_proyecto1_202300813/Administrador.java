@@ -135,12 +135,7 @@ public class Administrador extends JFrame implements ActionListener{
          Actualizarventana3.setBackground(new Color(156, 187, 230));
          Actualizarventana3.addActionListener(this);
          pest3.add(Actualizarventana3);
-         
-         
-         
-         
-         
-        
+
         //contenido de la pestaña doctores, pestaña 1
         //tabla
         String[] columadoc = {"codigo", "nombre", "genero", "edad", "especialidad", "telefono"};
@@ -155,12 +150,19 @@ public class Administrador extends JFrame implements ActionListener{
         
         
         //tabla
-        String[] columanas_usuario = { "nombre","apellido","contraseña","genero", "edad"  };
+        String[] columanas_paciente = { "Codigo","Nombre","apellido","contraseña","genero", "edad"  };
         //llamar a la tabla
-        JTable table_usr = new JTable(Registro.convertidordedatos_tabla(), columanas_usuario);
+        JTable table_usr = new JTable(IPC1_Proyecto1_202300813.convertirDatosPacientes_tabla(),columanas_paciente);
         JScrollPane scrollPane1 =new JScrollPane(table_usr);
         scrollPane1.setBounds(25, 80, 750, 570);
         pest2.add(scrollPane1);
+        
+        String[] columanas_producto = { "Codigo","Nombre","Cantidad","Descripción", "Precio"  };
+        //llamar a la tabla
+        JTable table_pro = new JTable(IPC1_Proyecto1_202300813.convertirDatosProductos_tabla(),columanas_producto );
+        JScrollPane scrollPane2 =new JScrollPane(table_pro);
+        scrollPane2.setBounds(25, 80, 750, 570);
+        pest3.add(scrollPane2);
         
         JLabel lbl6 = new JLabel("Listado de Productos");
         lbl6.setBounds(25, 25, 750, 50);
@@ -319,7 +321,79 @@ public class Administrador extends JFrame implements ActionListener{
             this.dispose();
             Login Login1 =new Login();
             
+        }else if (e.getSource() == crearpaciente) {
+             this.dispose();
+            crear_Paciente paciente3 = new crear_Paciente();
+            
+            
+        }else if (e.getSource() == Eliminarpaciente) {       
+        String codigoEliminar2 = JOptionPane.showInputDialog("Ingrese el código del Paciente a eliminar:");
+
+        // Verifica si el usuario ingresó un valor
+        if (codigoEliminar2 != null && !codigoEliminar2.isEmpty()) {
+            // Intenta convertir el valor ingresado a un entero
+            try {
+                int code = Integer.parseInt(codigoEliminar2);
+                // Llama al método eliminarDoctor con el código proporcionado
+                EliminarPacientes.EliminarPacientes(code);
+            } catch (NumberFormatException ex) {
+                // Maneja el caso en que el valor ingresado no sea un número
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
         }
+        this.dispose();
+         Administrador Admin = new Administrador();
+        
+            
+            
+        }else if (e.getSource() == Actualizarpaciente) {
+            
+    // Pide al usuario que ingrese el código del doctor a actualizar
+    String codigoActualizar2 = JOptionPane.showInputDialog("Ingrese el código del Paciente a actualizar:");
+
+    // Verifica si el usuario ingresó un valor
+    if (codigoActualizar2 != null && !codigoActualizar2.isEmpty()) {
+        // Intenta convertir el valor ingresado a un entero
+        try {
+            int codi = Integer.parseInt(codigoActualizar2);
+            // Busca el doctor con el código especificado
+            CreadorPaciente pasiActualizar = null;
+            for (CreadorPaciente paciente3 : IPC1_Proyecto1_202300813.listadoPaciente) {
+                if (paciente3.getCodigoPaciente() == codi) {
+                    pasiActualizar = paciente3;
+                    break;
+                }
+            }
+
+            if (pasiActualizar != null) {
+                // Llama a la clase ActualizarDoc y pasa el doctor a actualizar
+                ActualizarPaciente actualizarpasi = new ActualizarPaciente(pasiActualizar);
+                this.dispose();
+                Administrador Admin = new Administrador();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró un Paciente con el código especificado.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
+        
+    }
+    
+    
+ 
+            
+        }else if (e.getSource() == CrearProducto) {
+             this.dispose();
+            Crear_Producto producto = new Crear_Producto();
+            
+            
+        }
+     
         
         
         

@@ -94,7 +94,7 @@ public class Login extends JFrame implements ActionListener{
              for (int i = 0; i < regi.listauwu.size() ; i++) {
              if (Username.equals(Integer.toString(regi.listauwu.get(i).getCodigo())) && contra.equals(regi.listauwu.get(i).getContraseña())){
                 JOptionPane.showMessageDialog(null,"Bienvenido Usuario");
-                 Administrador Admin = new Administrador();
+                 Paciente pacien = new Paciente();
                  this.dispose();
             }else{
                  JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta", "no se pudo inicar sesión", JOptionPane.WARNING_MESSAGE);
