@@ -393,10 +393,53 @@ public class Administrador extends JFrame implements ActionListener{
             
             
         }
+        else if (e.getSource() == ActualizarProducto) {
+            
+    // Pide al usuario que ingrese el código del doctor a actualizar
+    String codigoActualizar3 = JOptionPane.showInputDialog("Ingrese el código del Doctor a actualizar:");
+
+    // Verifica si el usuario ingresó un valor
+    if (codigoActualizar3 != null && !codigoActualizar3.isEmpty()) {
+        // Intenta convertir el valor ingresado a un entero
+        try {
+            int codier = Integer.parseInt(codigoActualizar3);
+            // Busca el doctor con el código especificado
+            CreadorProducto produActualizar = null;
+            for (CreadorProducto produ3 : IPC1_Proyecto1_202300813.listadoProducto) {
+                if (produ3.getCodigoProducto()== codier) {
+                    produActualizar = produ3;
+                    break;
+                }
+            }
+
+            if (produActualizar != null) {
+                // Llama a la clase ActualizarDoc y pasa el doctor a actualizar
+                ActualizarProducto actualizarProducto = new ActualizarProducto(produActualizar);
+                this.dispose();
+                actualizarProducto.setVisible(true);
+                this.dispose();
+                Administrador Admin = new Administrador();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró un Producto con el código especificado.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
+        
+    }
+    
+    
+ 
+            
+        
      
         
         
         
     }
     
+}
 }

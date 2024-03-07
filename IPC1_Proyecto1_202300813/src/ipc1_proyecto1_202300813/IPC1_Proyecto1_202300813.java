@@ -6,6 +6,7 @@ public class IPC1_Proyecto1_202300813 {
     public static ArrayList <Doc> listadoctores = new ArrayList<>();
     public static ArrayList<CreadorPaciente> listadoPaciente = new ArrayList<>();
     public static ArrayList<CreadorProducto> listadoProducto = new ArrayList<>();
+   
 
 
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class IPC1_Proyecto1_202300813 {
          //Registro registro1 = new Registro();
          //crear_Paciente paciente3 = new crear_Paciente();
          //Crear_Producto product = new Crear_Producto();
+
        
         
     }

@@ -88,7 +88,7 @@ public class Crear_Producto extends JFrame implements ActionListener{
             String cantidadProduct = cantidadProducto.getText();
 
 
-           IPC1_Proyecto1_202300813.agregarproducto(IPC1_Proyecto1_202300813.contador3, nombreProduct, Double.parseDouble(precioproduct), Descripcionproduct, Integer.parseInt(cantidadProduct));
+            IPC1_Proyecto1_202300813.agregarproducto(IPC1_Proyecto1_202300813.contador3, nombreProduct, Double.parseDouble(precioproduct), Descripcionproduct, Integer.parseInt(cantidadProduct));
             IPC1_Proyecto1_202300813.contador3++;
             this.dispose();
             Administrador Admin = new Administrador();

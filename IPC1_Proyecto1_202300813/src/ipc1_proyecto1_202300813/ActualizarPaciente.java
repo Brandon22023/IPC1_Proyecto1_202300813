@@ -16,7 +16,7 @@ public class ActualizarPaciente extends JFrame implements ActionListener {
     public ActualizarPaciente(CreadorPaciente paciente) {
         this.pacienteActual = paciente;
         
-        JLabel titleLabel = new JLabel("Actualizar Doctor");
+        JLabel titleLabel = new JLabel("Actualizar Paciente");
         titleLabel.setFont(new Font("Kristen ITC", Font.BOLD, 20));
         titleLabel.setBounds(350, 10, 1000, 30);
         this.add(titleLabel);
@@ -72,7 +72,7 @@ public class ActualizarPaciente extends JFrame implements ActionListener {
          imagenLabel5.setBounds(0,0,900, 400);
         this.add(imagenLabel5);
 
-        this.setTitle("Actualizar Doctor");
+        this.setTitle("Actualizar Paciente");
         this.setBounds(650, 400, 900, 350);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -93,7 +93,7 @@ public class ActualizarPaciente extends JFrame implements ActionListener {
 
 
             // Mensaje de éxito
-            JOptionPane.showMessageDialog(null, "Doctor actualizado exitosamente.");
+            JOptionPane.showMessageDialog(null, "Paciente actualizado exitosamente.");
 
             // Cierra la ventana de actualización
             this.dispose();
