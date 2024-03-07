@@ -12,11 +12,12 @@ public class IPC1_Proyecto1_202300813 {
     public static void main(String[] args) {
         
 
-        //Login Login1 =new Login();
-        Administrador Admin = new Administrador();
+        Login Login1 =new Login();
+        //Administrador Admin = new Administrador();
          //Registro registro1 = new Registro();
          //crear_Paciente paciente3 = new crear_Paciente();
          //Crear_Producto product = new Crear_Producto();
+         // Paciente pacie = new Paciente();
 
        
         
@@ -66,16 +67,18 @@ public class IPC1_Proyecto1_202300813 {
     
     public static Object[][] convertirDatosDoctores_tabla(){
         int filas= listadoctores.size();
-        Object[][] arreglo = new Object[filas][6];
+        Object[][] arreglo = new Object[filas][8];
         
         for (int i = 0; i < filas; i++) {
             Doc temp_doctores = listadoctores.get(i);
             arreglo[i][0]=temp_doctores.getCodigo();
             arreglo[i][1]=temp_doctores.getNombre();
-            arreglo[i][2]=temp_doctores.getGenero();
-            arreglo[i][3]=temp_doctores.getEdad();
-            arreglo[i][4]=temp_doctores.getEspecialidad();
-            arreglo[i][5]=temp_doctores.getTelefono();
+            arreglo[i][2]=temp_doctores.getApellido();
+            arreglo[i][3]=temp_doctores.getGenero();
+            arreglo[i][4]=temp_doctores.getEdad();
+            arreglo[i][5]=temp_doctores.getEspecialidad();
+            arreglo[i][6]=temp_doctores.getContraseña();
+            arreglo[i][7]=temp_doctores.getTelefono();
 
             
         }
@@ -94,12 +97,14 @@ public class IPC1_Proyecto1_202300813 {
 }
     public static int contador2=1;
     
-    public static void agregardoctor(int codigo, String nombre, String genero, int edad, String especialidad, String telefono){
+    public static void agregardoctor(int codigo, String nombre,String apellido, String genero, int edad, String especialidad,String contraseña, String telefono){
         
-        listadoctores.add(new Doc(codigo, nombre, genero, edad, especialidad, telefono));
+        listadoctores.add(new Doc(codigo, nombre,apellido, genero, edad, especialidad,contraseña, telefono));
+
     }
     public static int contador=1;
-    
+
+
     
 }
 

@@ -10,24 +10,23 @@ public class Doc {
     private String telefono;
     private String apellido;  // Nuevo campo
    private String contraseña;
-    
 
-    public Doc(int codigo, String nombre, String genero, int edad, String especialidad, String telefono) {
+
+ 
+    public Doc(int codigo, String nombre,String apellido, String genero, int edad, String especialidad,String contraseña, String telefono) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.especialidad = especialidad;
         this.telefono = telefono;
+        this.apellido = apellido;
+        this.contraseña = contraseña;
     }
 
-    Doc(int codigo, String nombre, String genero, String edad, String especialidad, String telefono) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    Doc(int codigo, String nombre, String genero, int edad, String especialidad, String telefono, String apellido, String contraseña) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
+
 
     public int getCodigo() {
         return codigo;

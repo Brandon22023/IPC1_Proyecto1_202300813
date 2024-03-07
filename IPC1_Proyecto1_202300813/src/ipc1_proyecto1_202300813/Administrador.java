@@ -23,7 +23,7 @@ public class Administrador extends JFrame implements ActionListener{
     JButton Eliminarpaciente;
     JButton CrearProducto;
     JButton ActualizarProducto;
-    JButton EliminarProducto;
+    JButton DeleProducto;
     
     public Administrador() {
         //pestañas
@@ -53,11 +53,11 @@ public class Administrador extends JFrame implements ActionListener{
          CrearProducto.addActionListener(this);
          pest3.add(CrearProducto);
          
-         EliminarProducto= new JButton ("Eliminar Producto");
-         EliminarProducto.setBounds(1200, 100, 150, 50);
-         EliminarProducto.setBackground(new Color(156, 187, 230));
-         EliminarProducto.addActionListener(this);
-         pest3.add(EliminarProducto);
+         DeleProducto= new JButton ("Eliminar Producto");
+         DeleProducto.setBounds(1200, 100, 150, 50);
+         DeleProducto.setBackground(new Color(156, 187, 230));
+         DeleProducto.addActionListener(this);
+         pest3.add(DeleProducto);
          
          ActualizarProducto= new JButton ("Actualizar Producto");
          ActualizarProducto.setBounds(1000, 100, 150, 50);
@@ -138,7 +138,7 @@ public class Administrador extends JFrame implements ActionListener{
 
         //contenido de la pestaña doctores, pestaña 1
         //tabla
-        String[] columadoc = {"codigo", "nombre", "genero", "edad", "especialidad", "telefono"};
+        String[] columadoc = {"Codigo", "Nombre","Apellido", "Genero", "Edad", "Especialidad","Contraseña", "Telefono"};
         //llamar a la tabla
         JTable table_doc = new JTable(IPC1_Proyecto1_202300813.convertirDatosDoctores_tabla(),columadoc );
         
@@ -430,16 +430,33 @@ public class Administrador extends JFrame implements ActionListener{
         JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
         
     }
-    
-    
- 
-            
-        
-     
-        
-        
-        
+
     }
+        else if (e.getSource() == DeleProducto) {       
+        String codigoEliminar3 = JOptionPane.showInputDialog("Ingrese el código del Producto a eliminar:");
+
+        // Verifica si el usuario ingresó un valor
+        if (codigoEliminar3 != null && !codigoEliminar3.isEmpty()) {
+            // Intenta convertir el valor ingresado a un entero
+            try {
+                int codis = Integer.parseInt(codigoEliminar3);
+                // Llama al método eliminarDoctor con el código proporcionado
+                
+                EliminarProducto.DeleteProducto(codis);
+ 
+            } catch (NumberFormatException ex) {
+                // Maneja el caso en que el valor ingresado no sea un número
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
+        }
+        this.dispose();
+         Administrador Admin = new Administrador();
+        
+            
+            
+        }
     
 }
 }

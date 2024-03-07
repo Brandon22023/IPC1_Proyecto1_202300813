@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 public class Paciente extends JFrame implements ActionListener {
 
-    public Paciente() throws HeadlessException {
+    public Paciente() {
         
         this.setTitle("Paciente");
         this.setBounds(650, 400, 500, 350);

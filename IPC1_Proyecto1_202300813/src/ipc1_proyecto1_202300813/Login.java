@@ -73,6 +73,8 @@ public class Login extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent IniciarS) {
         boolean ingresar = false;
+        
+        
         //cuando revisa un click
         if (IniciarS.getActionCommand().equals("Iniciar sesión")) {
             //accion a realizar al presionar encima
@@ -84,9 +86,7 @@ public class Login extends JFrame implements ActionListener{
                 
                 
                 
-            }
-            
-            else if(ingresar == false){
+            }else if(ingresar == false){
                 
                 Registro regi = new Registro();
                regi.setVisible(false);
@@ -94,17 +94,46 @@ public class Login extends JFrame implements ActionListener{
              for (int i = 0; i < regi.listauwu.size() ; i++) {
              if (Username.equals(Integer.toString(regi.listauwu.get(i).getCodigo())) && contra.equals(regi.listauwu.get(i).getContraseña())){
                 JOptionPane.showMessageDialog(null,"Bienvenido Usuario");
-                 Paciente pacien = new Paciente();
-                 this.dispose();
-            }else{
-                 JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta", "no se pudo inicar sesión", JOptionPane.WARNING_MESSAGE);
-             }
+                Administrador Admin = new Administrador();
+                  this.dispose();
+                  
+                  ingresar = true;
             
+            break;
+            
+            } 
+        }if (!ingresar) {
+        // Lógica para el tercer tipo de usuario (código y contraseña de listadoPaciente)
+        for (CreadorPaciente paciente : IPC1_Proyecto1_202300813.listadoPaciente) {
+            if (Username.equals(Integer.toString(paciente.getCodigoPaciente())) && contra.equals(paciente.getContraseñaPaciente())) {
+          
+      JOptionPane.showMessageDialog(null, "Bienvenido Paciente tipo de usuario");
+
+                // Agrega aquí la lógica para abrir la ventana específica del tercer tipo de usuario
+                // Por ejemplo: VentanaTipoTres ventanaTipoTres = new VentanaTipoTres();
+                // ventanaTipoTres.setVisible(true);
+                
+                
+               
+                 Paciente pacie = new Paciente();
+                this.dispose();
+ 
+             // Termina la función ya que se encontró una coincidencia
+            }
         }
+
+        // Si no se encontró coincidencia, muestra un mensaje de error
+        //JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "No se pudo iniciar sesión", JOptionPane.WARNING_MESSAGE);
+    }
+        
               
             }
             //click en el boton registro
-        }else  if (IniciarS.getActionCommand().equals("Registrarse")) {
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "No se pudo iniciar sesión", JOptionPane.WARNING_MESSAGE);
+        }
+        if (IniciarS.getActionCommand().equals("Registrarse")) {
             //accion a realizar al presionar encima
             Registro registro1 = new Registro();
             this.dispose();
