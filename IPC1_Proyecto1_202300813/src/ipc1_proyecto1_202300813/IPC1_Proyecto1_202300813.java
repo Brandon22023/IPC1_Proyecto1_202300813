@@ -2,6 +2,9 @@
 package ipc1_proyecto1_202300813;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 public class IPC1_Proyecto1_202300813 {
     public static ArrayList <Doc> listadoctores = new ArrayList<>();
     public static ArrayList<CreadorPaciente> listadoPaciente = new ArrayList<>();
@@ -12,12 +15,12 @@ public class IPC1_Proyecto1_202300813 {
     public static void main(String[] args) {
         
 
-        //Login Login1 =new Login();
+        Login Login1 =new Login();
         //Administrador Admin = new Administrador();
          //Registro registro1 = new Registro();
          //crear_Paciente paciente3 = new crear_Paciente();
          //Crear_Producto product = new Crear_Producto();
-         Paciente pacie = new Paciente();
+         //Paciente pacie = new Paciente();
 
        
         
@@ -103,7 +106,19 @@ public class IPC1_Proyecto1_202300813 {
 
     }
     public static int contador=1;
+    
 
+public static Set<Doc> getDoctoresPorEspecialidad(String especialidad) {
+    Set<Doc> doctoresPorEspecialidad = new HashSet<>();
+
+    for (Doc doctor : listadoctores) {
+        if (doctor.getEspecialidad().equals(especialidad)) {
+            doctoresPorEspecialidad.add(doctor);
+        }
+    }
+
+    return doctoresPorEspecialidad;
+}
 
     
 }

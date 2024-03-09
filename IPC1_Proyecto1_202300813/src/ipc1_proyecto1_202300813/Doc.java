@@ -104,6 +104,10 @@ public class Doc {
         this.contraseña = contraseña;
     }
 
+    String getNombreCompleto() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
     
 }
