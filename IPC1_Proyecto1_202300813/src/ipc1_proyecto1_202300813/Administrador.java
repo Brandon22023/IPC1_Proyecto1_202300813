@@ -7,6 +7,22 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+
+
+//libreria de las graficas
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Administrador extends JFrame implements ActionListener{
     JButton salirboton;
@@ -26,6 +42,11 @@ public class Administrador extends JFrame implements ActionListener{
     JButton DeleProducto;
     
     public Administrador() {
+        
+        
+        
+        
+  
         //pestañas
         
         JTabbedPane pestañas  = new JTabbedPane(JTabbedPane.TOP);
@@ -46,7 +67,85 @@ public class Administrador extends JFrame implements ActionListener{
         pestañas.addTab("Pacientes", pest2);
         pestañas.addTab("Productos", pest3);
         
+        //graficas prueba para pestañas con doctor
+        DefaultCategoryDataset datos_Especialidad = new DefaultCategoryDataset();
+        Map <String, Integer>  especialidadesMap = new HashMap();
+        // for ech 
+        for (Doc espi: IPC1_Proyecto1_202300813.listadoctores ){ 
+            String espec = espi.getEspecialidad();
+            if (especialidadesMap.containsKey( espec)){
+                especialidadesMap.put(espec, especialidadesMap.get(espec)+1 );
+            }else   {
+                especialidadesMap.put(espec, 1);
+            }
+        }
+        List<Map.Entry<String, Integer>> listaOrdenada = new ArrayList<>( especialidadesMap.entrySet());
         
+        Collections.sort(listaOrdenada, Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+
+     
+        int contador = 0;
+        for (Map.Entry<String, Integer> dato_mapa : listaOrdenada) {
+            contador++;
+            //                         (valor que va a tener en la grafica, especialidad, especialidad)
+            datos_Especialidad.addValue(dato_mapa.getValue(), dato_mapa.getKey(), dato_mapa.getKey());
+
+            if (contador == 5) {
+                break;
+            }
+
+        }
+        
+ 
+        //creando grafica
+        JFreeChart graficaEspecialidad = ChartFactory.createBarChart("Top 5 de Especialidades", "especialidad", "cantidad", datos_Especialidad );
+        CategoryPlot plot = graficaEspecialidad.getCategoryPlot();
+        CategoryAxis XAxis = plot.getDomainAxis();
+        XAxis.setCategoryLabelPositions(CategoryLabelPositions.DOWN_45);
+        ChartPanel Chartpanel = new ChartPanel(graficaEspecialidad);
+        Chartpanel.setBounds(1000, 350, 400, 400);
+        pest1.add( Chartpanel);
+
+        //
+                //graficas prueba para pestañas con paciente
+        DefaultCategoryDataset datos_Producto = new DefaultCategoryDataset();
+        Map <String, Integer>  espeproduct = new HashMap();
+        // for ech 
+        for (CreadorProducto espipro: IPC1_Proyecto1_202300813.listadoProducto ){ 
+            String especr = espipro.getNombreProducto();
+            if (espeproduct.containsKey( especr)){
+                espeproduct.put(especr, espeproduct.get(especr)+1 );
+            }else   {
+                espeproduct.put(especr, 1);
+            }
+        }
+        List<Map.Entry<String, Integer>> listaproduct = new ArrayList<>( espeproduct.entrySet());
+        
+        Collections.sort(listaproduct , Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+
+     
+        int contadorproducto = 0;
+        for (Map.Entry<String, Integer> dato_mapaproduct : listaproduct ) {
+            contadorproducto++;
+            //                         (valor que va a tener en la grafica, especialidad, especialidad)
+            datos_Producto.addValue(dato_mapaproduct.getValue(), dato_mapaproduct.getKey(), dato_mapaproduct.getKey());
+
+            if (contadorproducto == 3) {
+                break;
+            }
+
+        }
+
+        //creando grafica
+        JFreeChart graficaproducto = ChartFactory.createBarChart("Top 3 de productos", "Productos", "cantidad", datos_Producto );
+        CategoryPlot plott= graficaproducto.getCategoryPlot();
+        CategoryAxis XAxiss = plott.getDomainAxis();
+        XAxiss.setCategoryLabelPositions(CategoryLabelPositions.DOWN_45);
+        ChartPanel Chartpanels = new ChartPanel(graficaproducto);
+        Chartpanels.setBounds(1000, 350, 400, 400);
+        pest3.add( Chartpanels);
+ 
+        //
         CrearProducto= new JButton ("Crear Producto");
          CrearProducto.setBounds(1200, 25, 150, 50);
          CrearProducto.setBackground(new Color(156, 187, 230));

@@ -12,12 +12,12 @@ public class IPC1_Proyecto1_202300813 {
     public static void main(String[] args) {
         
 
-        Login Login1 =new Login();
+        //Login Login1 =new Login();
         //Administrador Admin = new Administrador();
          //Registro registro1 = new Registro();
          //crear_Paciente paciente3 = new crear_Paciente();
          //Crear_Producto product = new Crear_Producto();
-         // Paciente pacie = new Paciente();
+         Paciente pacie = new Paciente();
 
        
         
